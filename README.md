@@ -61,7 +61,7 @@ A base de dados também apresentava variáveis categóricas que foram transforma
 
 **Seleção de features**
 
-<b><i>Vale lembrar que o Banco Central possui regras que regulamentariam o sistema de credit score no Brasil. Uma dessas regras diz que não podemos inserir dados sensíveis como "sexo" e "estado civil", logo, essas features foram retiradas do algoritmo desenvolvido.</b></i>
+Vale lembrar que o Banco Central possui regras que regulamentariam o sistema de credit score no Brasil. Uma dessas regras diz que não podemos inserir dados sensíveis como "sexo" e "estado civil", logo, essas features foram retiradas do algoritmo desenvolvido.
 
 **Avaliação do modelo**
 
@@ -74,7 +74,7 @@ Além das duas métricas citadas acima, como o modelo de regressão logistica ut
 Por fim, utilizou-se a área sob a curva ROC (AUC — Area Under the Curve ou AUROC — Area Under the Receiver Operating Characteristic curve) como métrica de qualidade do um modelo, dado que quanto mais próxima a curva estiver do canto superior esquerdo, maior será a área sob a curva e melhor será o modelo. Uma vantagem desta métrica é que ela não é sensível ao desbalanço de classes, como ocorre com a acurácia. Por outro lado, a AUROC não é tão facilmente interpretável.
 
 
-# Resultado
+# Resultados e conclusão
 
 # Tecnologias utilizadas
 
