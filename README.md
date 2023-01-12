@@ -62,7 +62,7 @@ Na fase de análise exploratória de dados, plotou-se os gráficos de distribui�
 Na base de dados existia um desbalanceamento para os valores da variável target ('default'), onde o dataset possuia 70% de amostras para valores de empréstimos negados (0) e apenas 30% de valores para empréstimos concedidos (1), conforme demonstrado na figura abaixo. Isso iria ocasionar no desenvolvimento de um algoritmo que seria bom para negar empréstimos e não seria bom para aprova-los. Devido a isso, os dados aplicou-se oversampling com a técnica Synthetic Minority Oversampling Technique (SMOTE), explicada em [1].
 
 <p align="center">
-  <img src="imgs/desbalanceamento_default.PNG"/, height=60>
+  <img src="imgs/desbalanceamento_default.PNG"/, height=100>
 </p>
 
 A base de dados também apresentava variáveis categóricas que foram transformadas em variáveis numéricas através de um dicionário. 
@@ -79,12 +79,6 @@ Para a otimização do modelo, foi utilizado a classe GridSearchCV que realiza o
 
 Uma forma de analisar a performance de um modelo de classificação é através de uma matriz de confusão [3]. A matriz permite visualizarmos quantos clientes foram classificados de forma correta ou incorreta em cada classe, o que nos ajuda a entender se o modelo está favorecendo uma classe em detrimento da outra. A partir da matriz de confusão surgem métricas como a acurácia, precisão, revocação e curva ROC. Abaixo você confere um exemplo de matriz de confusão. 
 
-<p align="center">
-<figure>
-  <img src="imgs/matriz-de-confusao-explicacao.png", height=200/>
-  <figcaption>Matriz de confusão, adaptado de [4]</figcaption>
-</figure>
-</p>
 
 <p align="center">
   <img src="imgs/matriz-de-confusao-explicacao.png", height=200/>
