@@ -62,7 +62,7 @@ Na fase de análise exploratória de dados, plotou-se os gráficos de distribui�
 Na base de dados existia um desbalanceamento para os valores da variável target ('default'), onde o dataset possuia 70% de amostras para valores de empréstimos negados (0) e apenas 30% de valores para empréstimos concedidos (1), conforme demonstrado na figura abaixo. Isso iria ocasionar no desenvolvimento de um algoritmo que seria bom para negar empréstimos e não seria bom para aprova-los. Devido a isso, os dados aplicou-se oversampling com a técnica Synthetic Minority Oversampling Technique (SMOTE), explicada em [1].
 
 <p align="center">
-  <img src="imgs/desbalanceamento_default.PNG"/>
+  <img src="imgs/desbalanceamento_default.PNG"/, height=60>
 </p>
 
 A base de dados também apresentava variáveis categóricas que foram transformadas em variáveis numéricas através de um dicionário. 
@@ -84,6 +84,11 @@ Uma forma de analisar a performance de um modelo de classificação é através 
   <img src="imgs/matriz-de-confusao-explicacao.png", height=200/>
   <figcaption>Matriz de confusão, adaptado de [4]</figcaption>
 </figure>
+</p>
+
+<p align="center">
+  <img src="imgs/matriz-de-confusao-explicacao.png", height=200/>
+  <figcaption>Matriz de confusão, adaptado de [4]</figcaption>
 </p>
 
 Outra forma de analisar a performance é através da precisão, que busca dentre os valores classificados de positivos quais realmente são positivos. Sendo esse nosso foco do modelo, pois queremos ver se o empréstimo será liberado para um cliente que possa pagar. 
