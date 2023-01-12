@@ -7,8 +7,7 @@
 
 Um banco alemão está buscando melhorar a sua acertividade em emprestar dinheiro a clientes. Devido a isso o gerente gostaria de desenvolver um algoritmo que preve com 90% de acertividade se determinado cliente irá pagar o empréstimo. Para realizar esse estudo, utilizaremos a base de dados presentes no banco de dados da UCI, disponível no link: https://archive.ics.uci.edu/ml/datasets/statlog+(german+credit+data)
 
-O projeto consiste em responder a seguinte pergunta: 
-* Dado alguns dados referente a um cliente posso liberar um empréstimo para esse cliente?  
+O projeto consiste em responder a seguinte pergunta: Dado alguns dados referente a um cliente posso liberar um empréstimo para esse cliente?  
 
 # Features
 
