@@ -45,7 +45,7 @@ As variáveis presentes na base de dados estão descritas abaixo.
 Atualmente para realizar a análise de crédito utilizou-se da técnica matemática de Regressão Logística, que consiste em um modelo estatístico que usa a função logística, ou função logit, em matemática como a equação entre x e y, conforme descrito na imagem abaixo. A função logit mapeia y como uma função sigmoide de x. A regressão logística é uma técnica de análise de dados que usa matemática para encontrar as relações entre dois fatores de dados. Em seguida, essa relação é usada para prever o valor de um desses fatores com base no outro. A previsão geralmente tem um número finito de resultados, como sim ou não. Portanto a regressão logística faz a classificação de valores binários de 0 para não e 1 para sim. 
 
 <p align="center">
-  <img src="im", height=10/>
+  <img src="imgs/regressao_logistica.png", height=10/>
 </p>
 
 
