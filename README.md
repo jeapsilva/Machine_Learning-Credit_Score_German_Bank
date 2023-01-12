@@ -110,6 +110,13 @@ Por fim, a métrica f1-score encontrada para o problema em questão foi de 0.67,
 
 # Tecnologias utilizadas
 
+<div style="display: inline_block"><br/>
+    <img align="center" alt="Jupyter" src="https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white" />  
+    <img align="center" alt="Scikit Learn" src="https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" /> 
+    <img align="center" alt="Matplotlib" src="https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black" />
+    <img align="center" alt="Pandas" src="https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white" />
+</div><br/>
+
 # Pessoas Desenvolvedoras do Projeto
 
 <a href="https://github.com/jesapsilva">Jéssica Aparecida Silva - Cientista de dados</a>
