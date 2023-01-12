@@ -62,7 +62,7 @@ Na fase de análise exploratória de dados, plotou-se os gráficos de distribui�
 Na base de dados existia um desbalanceamento para os valores da variável target ('default'), onde o dataset possuia 70% de amostras para valores de empréstimos negados (0) e apenas 30% de valores para empréstimos concedidos (1), conforme demonstrado na figura abaixo. Isso iria ocasionar no desenvolvimento de um algoritmo que seria bom para negar empréstimos e não seria bom para aprova-los. Devido a isso, os dados aplicou-se oversampling com a técnica Synthetic Minority Oversampling Technique (SMOTE), explicada em [1].
 
 <p align="center">
-  <img src="imgs/desbalanceamento_default.PNG"/, height=100>
+  <img src="imgs/desbalanceamento_default.PNG"/>
 </p>
 
 A base de dados também apresentava variáveis categóricas que foram transformadas em variáveis numéricas através de um dicionário. 
