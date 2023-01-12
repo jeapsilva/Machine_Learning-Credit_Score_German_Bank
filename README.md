@@ -98,15 +98,15 @@ Por fim, utilizou-se a área sob a curva ROC (AUC — Area Under the Curve ou AU
 # Resultados e conclusão
 
 <p align="center">
-  <img src="imgs/matriz_confusao.png", height=200/>
+  <img src="imgs/matriz_confusao.PNG", height=200/>
 </p>
 
 <p align="center">
-  <img src="imgs/metricas_modelo.png", height=200/>
+  <img src="imgs/metricas_modelo.PNG", height=200/>
 </p>
 
 <p align="center">
-  <img src="imgs/curva_roc.png", height=200/>
+  <img src="imgs/curva_roc.PNG", height=200/>
 </p>
 
 
