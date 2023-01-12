@@ -61,7 +61,11 @@ Na fase de análise exploratória de dados, plotou-se os gráficos de distribui�
 
 Na base de dados existia um desbalanceamento para os valores da variável target ('default'), onde o dataset possuia 70% de amostras para valores de empréstimos negados (0) e apenas 30% de valores para empréstimos concedidos (1), conforme demonstrado na figura abaixo. Isso iria ocasionar no desenvolvimento de um algoritmo que seria bom para negar empréstimos e não seria bom para aprova-los. Devido a isso, os dados aplicou-se oversampling com a técnica Synthetic Minority Oversampling Technique (SMOTE), explicada em [1].
 
-A base de dados também apresentava variáveis categóricas que foram transformadas em variáveis numéricas
+<p align="center">
+  <img src="imgs/desbalanceamento_default.png", height=200/>
+</p>
+
+A base de dados também apresentava variáveis categóricas que foram transformadas em variáveis numéricas através de um dicionário. 
 
 **Seleção de features**
 
@@ -75,6 +79,12 @@ Para a otimização do modelo, foi utilizado a classe GridSearchCV que realiza o
 
 Uma forma de analisar a performance de um modelo de classificação é através de uma matriz de confusão [3]. A matriz permite visualizarmos quantos clientes foram classificados de forma correta ou incorreta em cada classe, o que nos ajuda a entender se o modelo está favorecendo uma classe em detrimento da outra. A partir da matriz de confusão surgem métricas como a acurácia, precisão, revocação e curva ROC. Abaixo você confere um exemplo de matriz de confusão. 
 
+<figure>
+  <img src="imgs/matriz-de-confusao-explicacao.png", height=200/>
+  <figcaption>Matriz de confusão, adaptado de [4]</figcaption>
+</figure>
+
+
 Outra forma de analisar a performance é através da precisão, que busca dentre os valores classificados de positivos quais realmente são positivos. Sendo esse nosso foco do modelo, pois queremos ver se o empréstimo será liberado para um cliente que possa pagar. 
 
 A métrica F1 [3], ou F1 score em inglês e também conhecida como F-measure, leva em consideração tanto a precisão quanto a revocação. Ela é definida pela média harmônica entre as duas. Uma das características da média harmônica é que se a precisão ou a revocação for zero ou muito próximos disso, o F1-score também será baixo. Desta forma, para que o F1-score seja alto, tanto a precisão como a revocação também devem ser altas. Ou seja, um modelo que apresenta um bom F1-score é um modelo capaz tanto de acertar suas predições (precisão alta) quanto de recuperar os exemplos da classe de interesse (revocação alta). Portanto, esta métrica tende a ser um resumo melhor da qualidade do modelo. Uma desvantagem é que a F1 acaba sendo menos interpretável que a acurácia.
@@ -85,6 +95,21 @@ Por fim, utilizou-se a área sob a curva ROC (AUC — Area Under the Curve ou AU
 
 
 # Resultados e conclusão
+
+<p align="center">
+  <img src="imgs/matriz_confusao.png", height=200/>
+</p>
+
+<p align="center">
+  <img src="imgs/metricas_modelo.png", height=200/>
+</p>
+
+<p align="center">
+  <img src="imgs/curva_roc.png", height=200/>
+</p>
+
+
+
 O uso de métricas apropriadas em um problema de classificação é crucial para o sucesso de um projeto de Machine Learning. A escolha da métrica deve levar em conta o objetivo do modelo no mundo real, o custo de cada tipo de erro, o quão interpretável ela deve ser, dentre outros fatores. É sempre importante ter uma visão crítica da avaliação de um modelo, e questionar se a escolha de métricas de fato reflete a definição de valor que a sua aplicação de Machine Learning necessita.
 
 # Tecnologias utilizadas
@@ -106,3 +131,5 @@ Esta licença permite que outros remixem, adaptem e criem a partir do seu trabal
 [2] Kai Ming Ting. 2011. Encyclopedia of machine learning. Springer. ISBN 978–0–387–30164–8
 
 [3] https://www.kunumi.com/2022/05/18/metricas-de-avaliacao-em-machine-learning-classificacao/
+
+[4] https://statplace.com.br/blog/uma-visao-geral-sobre-machine-learning/
