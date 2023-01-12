@@ -63,18 +63,25 @@ A base de dados também apresentava variáveis categóricas que foram transforma
 
 Vale lembrar que o Banco Central possui regras que regulamentariam o sistema de credit score no Brasil. Uma dessas regras diz que não podemos inserir dados sensíveis como "sexo" e "estado civil", logo, essas features foram retiradas do algoritmo desenvolvido.
 
+**Otimização do modelo**
+
+Para a otimização do modelo, foi utilizado a classe GridSearchCV que realiza o ajuste de hiperparâmetros do modelo de regressão logística. 
+
 **Avaliação do modelo**
 
-Uma forma de analisar a performance de um modelo de classificação é através de uma matriz de confusão [3]. A matriz permite visualizarmos quantos clientes foram classificados de forma correta ou incorreta em cada classe, o que nos ajuda a entender se o modelo está favorecendo uma classe em detrimento da outra. Abaixo você confere um exemplo de matriz de confusão. 
+Uma forma de analisar a performance de um modelo de classificação é através de uma matriz de confusão [3]. A matriz permite visualizarmos quantos clientes foram classificados de forma correta ou incorreta em cada classe, o que nos ajuda a entender se o modelo está favorecendo uma classe em detrimento da outra. A partir da matriz de confusão surgem métricas como a acurácia, precisão, revocação e curva ROC. Abaixo você confere um exemplo de matriz de confusão. 
 
-Outra forma de analisar a performance é através da precissão, que busca dentre os valores classificados de positivos quais realmente são positivos. Sendo esse nosso foco do modelo, pois queremos ver se o empréstimo será liberado para um cliente que possa pagar. 
+Outra forma de analisar a performance é através da precisão, que busca dentre os valores classificados de positivos quais realmente são positivos. Sendo esse nosso foco do modelo, pois queremos ver se o empréstimo será liberado para um cliente que possa pagar. 
 
-Além das duas métricas citadas acima, como o modelo de regressão logistica utiliza uma probabilidade para a classe positiva, ou seja, a partir de um certo limiar desse valor de probabilidade, o modelo irá classificar o cliente como positivo. Logo o limiar de classificação influencia o valor de outras métricas (acurácia, precisão, etc), e sua escolha deve levar em consideração o custo de cada erro. Logo, a curva ROC [3] (do inglês Receiver Operating Characteristic) pode ser utilizada para avaliar a performance de um classificador para diferentes limiares de classificação. 
+A métrica F1 [3], ou F1 score em inglês e também conhecida como F-measure, leva em consideração tanto a precisão quanto a revocação. Ela é definida pela média harmônica entre as duas. Uma das características da média harmônica é que se a precisão ou a revocação for zero ou muito próximos disso, o F1-score também será baixo. Desta forma, para que o F1-score seja alto, tanto a precisão como a revocação também devem ser altas. Ou seja, um modelo que apresenta um bom F1-score é um modelo capaz tanto de acertar suas predições (precisão alta) quanto de recuperar os exemplos da classe de interesse (revocação alta). Portanto, esta métrica tende a ser um resumo melhor da qualidade do modelo. Uma desvantagem é que a F1 acaba sendo menos interpretável que a acurácia.
+
+Também utilizou-se a curva ROC, pois como o modelo de regressão logistica utiliza uma probabilidade para a classe positiva, ou seja, a partir de um certo limiar desse valor de probabilidade, o modelo irá classificar o cliente como positivo. Logo o limiar de classificação influencia o valor de outras métricas (acurácia, precisão, etc), e sua escolha deve levar em consideração o custo de cada erro. Logo, a curva ROC [3] (do inglês Receiver Operating Characteristic) pode ser utilizada para avaliar a performance de um classificador para diferentes limiares de classificação. 
 
 Por fim, utilizou-se a área sob a curva ROC (AUC — Area Under the Curve ou AUROC — Area Under the Receiver Operating Characteristic curve) como métrica de qualidade do um modelo, dado que quanto mais próxima a curva estiver do canto superior esquerdo, maior será a área sob a curva e melhor será o modelo. Uma vantagem desta métrica é que ela não é sensível ao desbalanço de classes, como ocorre com a acurácia. Por outro lado, a AUROC não é tão facilmente interpretável.
 
 
 # Resultados e conclusão
+O uso de métricas apropriadas em um problema de classificação é crucial para o sucesso de um projeto de Machine Learning. A escolha da métrica deve levar em conta o objetivo do modelo no mundo real, o custo de cada tipo de erro, o quão interpretável ela deve ser, dentre outros fatores. É sempre importante ter uma visão crítica da avaliação de um modelo, e questionar se a escolha de métricas de fato reflete a definição de valor que a sua aplicação de Machine Learning necessita.
 
 # Tecnologias utilizadas
 
