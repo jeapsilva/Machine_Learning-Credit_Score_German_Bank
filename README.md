@@ -16,6 +16,7 @@ As variáveis presentes na base de dados estão descritas abaixo.
 
 | Feature  | Descrição |
 | ------------- | ------------- |
+| default  | variável que verifica se o empréstimo foi concedido ao cliente |
 | conta_corrente  |  |
 | prazo_emprestimo_meses  |   |
 | historico_credito |  |
@@ -41,15 +42,36 @@ As variáveis presentes na base de dados estão descritas abaixo.
 # Descrição da Solução
 **Solução**
 
+Atualmente para realizar a análise de crédito utilizou-se da técnica matemática de Regressão Logística, que consiste em um modelo estatístico que usa a função logística, ou função logit, em matemática como a equação entre x e y, conforme descrito na imagem abaixo. A função logit mapeia y como uma função sigmoide de x. A regressão logística é uma técnica de análise de dados que usa matemática para encontrar as relações entre dois fatores de dados. Em seguida, essa relação é usada para prever o valor de um desses fatores com base no outro. A previsão geralmente tem um número finito de resultados, como sim ou não. Portanto a regressão logística faz a classificação de valores binários de 0 para não e 1 para sim. 
+
+
 **Limpeza e manipulação dos dados**
 
-**Feature Engineering**
+A base de dados analisada possui 1000 linhas e 21 colunas que contem 20 features e 1 variável target. Na fase inicial da manipulação de dados foi realizada a busca por valores nulos, valores NaN, busca por valores outliers e removão de valores duplicados.
 
 **Análise Exploratória de Dados (EDA)**
 
-**Seleção de features e transformação**
+Na fase de análise exploratória de dados, plotou-se os gráficos de distribuição das variáveis para verificação destas. Notamos que variáveis como "valor_emprestimo" e "idade" possuem distribuição assimétrica a direita, logo essas variáveis foram transformadas para um intervalo como por exemplo 20<idade<30, etc. Além da distribuição das variáveis, analisamos o boxplot para analisarmos a presença de outliers. 
+
+**Feature Engineering**
+
+Na base de dados existia um desbalanceamento para os valores da variável target ('default'), onde o dataset possuia 70% de amostras para valores de empréstimos negados (0) e apenas 30% de valores para empréstimos concedidos (1), conforme demonstrado na figura abaixo. Isso iria ocasionar no desenvolvimento de um algoritmo que seria bom para negar empréstimos e não seria bom para aprova-los. Devido a isso, os dados aplicou-se oversampling com a técnica Synthetic Minority Oversampling Technique (SMOTE), explicada em [1].
+
+A base de dados também apresentava variáveis categóricas que foram transformadas em variáveis numéricas
+
+**Seleção de features**
+
+<b><i>Vale lembrar que o Banco Central possui regras que regulamentariam o sistema de credit score no Brasil. Uma dessas regras diz que não podemos inserir dados sensíveis como "sexo" e "estado civil", logo, essas features foram retiradas do algoritmo desenvolvido.</b></i>
 
 **Avaliação do modelo**
+
+Uma forma de analisar a performance de um modelo de classificação é através de uma matriz de confusão [3]. A matriz permite visualizarmos quantos clientes foram classificados de forma correta ou incorreta em cada classe, o que nos ajuda a entender se o modelo está favorecendo uma classe em detrimento da outra. Abaixo você confere um exemplo de matriz de confusão. 
+
+Outra forma de analisar a performance é através da precissão, que busca dentre os valores classificados de positivos quais realmente são positivos. Sendo esse nosso foco do modelo, pois queremos ver se o empréstimo será liberado para um cliente que possa pagar. 
+
+Além das duas métricas citadas acima, como o modelo de regressão logistica utiliza uma probabilidade para a classe positiva, ou seja, a partir de um certo limiar desse valor de probabilidade, o modelo irá classificar o cliente como positivo. Logo o limiar de classificação influencia o valor de outras métricas (acurácia, precisão, etc), e sua escolha deve levar em consideração o custo de cada erro. Logo, a curva ROC [3] (do inglês Receiver Operating Characteristic) pode ser utilizada para avaliar a performance de um classificador para diferentes limiares de classificação. 
+
+Por fim, utilizou-se a área sob a curva ROC (AUC — Area Under the Curve ou AUROC — Area Under the Receiver Operating Characteristic curve) como métrica de qualidade do um modelo, dado que quanto mais próxima a curva estiver do canto superior esquerdo, maior será a área sob a curva e melhor será o modelo. Uma vantagem desta métrica é que ela não é sensível ao desbalanço de classes, como ocorre com a acurácia. Por outro lado, a AUROC não é tão facilmente interpretável.
 
 
 # Resultado
@@ -65,3 +87,11 @@ As variáveis presentes na base de dados estão descritas abaixo.
 <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc.svg" />
 
 Esta licença permite que outros remixem, adaptem e criem a partir do seu trabalho para fins não comerciais e, embora os novos trabalhos tenham de lhe atribuir o devido crédito e não possam ser usados para fins comerciais, os usuários não têm de licenciar esses trabalhos derivados sob os mesmos termos.
+
+# Referências:
+
+[1] https://towardsdatascience.com/5-smote-techniques-for-oversampling-your-imbalance-data-b8155bdbe2b5#:~:text=SMOTE%20works%20by%20utilizing%20a,randomly%20selected%20k%2Dnearest%20neighbor.
+
+[2] Kai Ming Ting. 2011. Encyclopedia of machine learning. Springer. ISBN 978–0–387–30164–8
+
+[3] https://www.kunumi.com/2022/05/18/metricas-de-avaliacao-em-machine-learning-classificacao/
