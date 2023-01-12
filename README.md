@@ -62,7 +62,7 @@ Na fase de análise exploratória de dados, plotou-se os gráficos de distribui�
 Na base de dados existia um desbalanceamento para os valores da variável target ('default'), onde o dataset possuia 70% de amostras para valores de empréstimos negados (0) e apenas 30% de valores para empréstimos concedidos (1), conforme demonstrado na figura abaixo. Isso iria ocasionar no desenvolvimento de um algoritmo que seria bom para negar empréstimos e não seria bom para aprova-los. Devido a isso, os dados aplicou-se oversampling com a técnica Synthetic Minority Oversampling Technique (SMOTE), explicada em [1].
 
 <p align="center">
-  <img src="imgs/desbalanceamento_default.png"/>
+  <img src="imgs/desbalanceamento_default.PNG"/>
 </p>
 
 A base de dados também apresentava variáveis categóricas que foram transformadas em variáveis numéricas através de um dicionário. 
@@ -97,21 +97,17 @@ Por fim, utilizou-se a área sob a curva ROC (AUC — Area Under the Curve ou AU
 
 # Resultados e conclusão
 
+Como o problema para qual se busca utilizar a Ciência de dados procura melhorar a classificação dos empréstimos concedidos, foi escolhido utilizar as métricas de precisão e f1-score para otimização do algoritmo. A matriz de confusão, bem como a curva ROC obtida para o modelo otimizado por f1-score foi:
 <p align="center">
-  <img src="imgs/matriz_confusao.PNG", height=200/>
+  <img src="imgs/matriz_confusao.PNG", height=300/>
+  <img src="imgs/curva_roc.PNG", height=300/>
 </p>
 
-<p align="center">
-  <img src="imgs/metricas_modelo.PNG", height=200/>
-</p>
+Por fim, a métrica f1-score encontrada para o problema em questão foi de 0.67, ou seja, o algoritmo é capaz de acertar suas predições (precisão alta). Para a melhoria do modelo em questão, seria necessário a coleta de mais dados, visto que a base de dados só possuia 1000 clientes. Outro ponto importante no crescimentos da base de dados é sempre manter uma homogeneidade entre a quantidade de clientes com empréstimos negados e empréstimos concedidos.
 
 <p align="center">
-  <img src="imgs/curva_roc.PNG", height=200/>
+  <img src="imgs/metricas_modelo.PNG", height=150/>
 </p>
-
-
-
-O uso de métricas apropriadas em um problema de classificação é crucial para o sucesso de um projeto de Machine Learning. A escolha da métrica deve levar em conta o objetivo do modelo no mundo real, o custo de cada tipo de erro, o quão interpretável ela deve ser, dentre outros fatores. É sempre importante ter uma visão crítica da avaliação de um modelo, e questionar se a escolha de métricas de fato reflete a definição de valor que a sua aplicação de Machine Learning necessita.
 
 # Tecnologias utilizadas
 
