@@ -118,7 +118,7 @@ Por fim, a métrica f1-score encontrada para o problema em questão foi de 0.67,
 
 # Pessoas Desenvolvedoras do Projeto
 
-<a href="https://github.com/jesapsilva">Jéssica Aparecida Silva - Cientista de dados</a>
+<a href="https://github.com/jeapsilva">Jéssica Aparecida Silva - Cientista de dados</a>
 
 # Licença
 
